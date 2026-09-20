@@ -21,15 +21,11 @@ function transformStateWithClones(state, actions) {
         };
         break;
 
-      case 'removeProperties': {
-        const newState = structuredClone(currentState);
-
+      case 'removeProperties':
         for (const key of keysToRemove) {
-          delete newState[key];
+          delete currentState[key];
         }
-        currentState = newState;
         break;
-      }
 
       case 'clear':
         currentState = {};
